@@ -26,7 +26,7 @@ function CourseList(props) {
 	);
 }
 
- //this component expects to be passed an array of courses
+//this component expects to be passed an array of courses
 CourseList.propTypes = {
 	courses: PropTypes.arrayOf(
 		PropTypes.shape({
