@@ -7,14 +7,35 @@ class CoursesPage extends React.Component {
 	};
 
 	componentDidMount() {
-		// get courses from the API, and when it completes, store the array of courses in state
-		getCourses().then(courses => this.setState({ courses: courses }));
-		// will only update state on the properties that you specify
-		// if you had other properties stored in state, it would be unaffected
+		getCourses().then(courses => this.setState({ courses: courses })); // will only update state on the properties that you specify
 	}
 
 	render() {
-		return <h2>Courses</h2>
+		return (
+			<>
+				<h2>Courses</h2>
+				<table className="table">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Author ID</th>
+							<th>Category</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.state.courses.map(course => {
+							return (
+								<tr>
+									<td>{course.title}</td>
+									<td>{course.authorId}</td>
+									<td>{course.category}</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			</>
+		);
 	}
 }
 
